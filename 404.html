@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting...</title>
+  <meta name="robots" content="noindex,follow">
+  <script>
+    (function () {
+      const current = new URL(window.location.href);
+      const lowerPrefix = '/gigi-montico';
+      let nextPath = '/Gigi-Montico/';
+
+      if (current.pathname.toLowerCase().startsWith(lowerPrefix)) {
+        const suffix = current.pathname.slice(lowerPrefix.length);
+        nextPath = '/Gigi-Montico' + (suffix || '/');
+      }
+
+      const target = new URL('https://lad-plunk.github.io' + nextPath);
+      target.search = current.search;
+      target.hash = current.hash;
+      window.location.replace(target.toString());
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="https://lad-plunk.github.io/Gigi-Montico/">https://lad-plunk.github.io/Gigi-Montico/</a>...</p>
+</body>
+</html>
